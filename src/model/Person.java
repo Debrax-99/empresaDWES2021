@@ -74,4 +74,11 @@ public class Person {
 		this.dni = dni;
 		this.sex = sex;
 	}
+
+	// TOSTRING:
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", dni=" + dni + ", sex=" + sex + "]";
+	}
+
 }

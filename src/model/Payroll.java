@@ -80,4 +80,10 @@ public class Payroll {
 		this.salary = salary;
 	}
 
+	// TOSTRING:	
+	@Override
+	public String toString() {
+		return "Payroll [idPayroll=" + idPayroll + ", dni=" + dni + ", salary=" + salary + "]";
+	}
+
 }
