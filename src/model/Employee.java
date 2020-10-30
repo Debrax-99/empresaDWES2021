@@ -24,7 +24,7 @@ public class Employee extends Person {
 		super();
 	}
 
-	public Employee(String name, String dni, char sex, int idEmployee, int category, int year) {
+	public Employee(int idEmployee, String name, String dni, char sex, int category, int year) {
 		super(name, dni, sex);
 		this.idEmployee = idEmployee;
 		this.category = category;
@@ -72,6 +72,12 @@ public class Employee extends Person {
 	 */
 	public void setYears(int years) {
 		this.years = years;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [idEmployee=" + idEmployee + ", category=" + category + ", years=" + years + super.toString()
+				+ "]";
 	}
 
 }
