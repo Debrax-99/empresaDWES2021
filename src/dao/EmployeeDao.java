@@ -73,4 +73,62 @@ public class EmployeeDao {
 		return employees;
 	}
 	
+	public Employee selectEmployee(String dniSearch) {
+
+		Employee employee = null;
+
+		Connection conn = null;
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			conn = Connector.getconnection();
+			ps = conn.prepareStatement(SELECT_EMPLOYEE);
+			ps.setString(1, dniSearch);
+			rs = ps.executeQuery();
+						
+			if (rs.absolute(1)) {
+				int idEmployee = rs.getInt("id_employee");
+				String name = rs.getString("name");
+				String dni = rs.getString("dni");
+				char sex = rs.getString("sex").charAt(0);
+				int category = rs.getInt("category");
+				int years = rs.getInt("years");
+
+				employee = new Employee(idEmployee, name, dni, sex, category, years);
+			}			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return employee;
+	}
 }
