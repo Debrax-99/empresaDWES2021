@@ -24,7 +24,7 @@ public class Employee extends Person {
 		super();
 	}
 
-	public Employee(int idEmployee, String name, String dni, char sex, int category, int year) {
+	public Employee(int idEmployee, String name, String dni, char sex, int category, int years) {
 		super(name, dni, sex);
 		this.idEmployee = idEmployee;
 		this.category = category;

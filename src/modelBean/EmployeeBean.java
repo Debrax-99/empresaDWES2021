@@ -3,6 +3,8 @@
  */
 package modelBean;
 
+import model.Employee;
+
 /**
  * @author debrax
  *
@@ -24,12 +26,19 @@ public class EmployeeBean extends PersonBean {
 		super();
 	}
 
-	public EmployeeBean(String name, String dni, char sex, int idEmployee, int category, int year) {
+	public EmployeeBean(String name, String dni, char sex, int idEmployee, int category, int years) {
 		super(name, dni, sex);
 		this.idEmployee = idEmployee;
 		this.category = category;
 		this.years = years;
 	}
+	
+	public EmployeeBean(Employee employee) {
+		super(employee.getName(), employee.getDni(), employee.getSex());
+		this.idEmployee = employee.getIdEmployee();
+		this.category = employee.getCategory();
+		this.years = employee.getYears();
+	};
 
 	// GETTERS & SETTERS:
 	/**

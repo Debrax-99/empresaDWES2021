@@ -3,6 +3,8 @@
  */
 package modelBean;
 
+import model.Payroll;
+
 /**
  * @author debrax
  *
@@ -24,6 +26,12 @@ public class PayrollBean {
 		super();
 		this.dni = dni;
 		this.salary = salary;
+	}
+	
+	public PayrollBean(Payroll payroll) {
+		super();
+		this.dni = payroll.getDni();
+		this.salary = payroll.getSalary();
 	}
 
 	// GETTERS & SETTERS:
