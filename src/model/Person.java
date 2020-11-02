@@ -1,11 +1,11 @@
-/**
- * 
- */
 package model;
 
 /**
- * @author debrax
- *
+ * FP-2DAW Desarrollo Web en Entorno Servidor
+ * 
+ * @author Ana Blanco Escudero
+ * 
+ *         Clase Person que implementa el objeto que representa a una persona.
  */
 public class Person {
 
@@ -17,12 +17,27 @@ public class Person {
 	/** Género de la persona */
 	private char sex;
 
+	// CONSTRUCTOR:
 	/**
 	 * Constructor genérico
 	 */
-	// CONSTRUCTOR:
 	public Person() {
 
+	}
+
+	/**
+	 * Constructor sobrecargado que recibe por parámetros todos los atributos de una
+	 * persona.
+	 * 
+	 * @param name Nombre de la persona
+	 * @param dni  DNI de la persona
+	 * @param sex  Género de la persona
+	 */
+	public Person(String name, String dni, char sex) {
+		super();
+		this.name = name;
+		this.dni = dni;
+		this.sex = sex;
 	}
 
 	// GETTERS & SETTERS:
@@ -65,13 +80,6 @@ public class Person {
 	 * @param sex the sex to set
 	 */
 	public void setSex(char sex) {
-		this.sex = sex;
-	}
-
-	public Person(String name, String dni, char sex) {
-		super();
-		this.name = name;
-		this.dni = dni;
 		this.sex = sex;
 	}
 

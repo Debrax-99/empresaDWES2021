@@ -1,11 +1,11 @@
-/**
- * 
- */
 package modelBean;
 
 /**
- * @author debrax
- *
+ * FP-2DAW Desarrollo Web en Entorno Servidor
+ * 
+ * @author Ana Blanco Escudero
+ * 
+ *         Clase PersonBean que implementa el objeto Bean que representa a una persona.
  */
 public class PersonBean {
 
@@ -17,12 +17,27 @@ public class PersonBean {
 	/** Género de la persona */
 	private char sex;
 
+	// CONSTRUCTORS:
 	/**
 	 * Constructor genérico
 	 */
-	// CONSTRUCTOR:
 	public PersonBean() {
 
+	}
+
+	/**
+	 * Constructor sobrecargado que recibe por parámetros todos los atributos de una
+	 * persona.
+	 * 
+	 * @param name Nombre de la persona
+	 * @param dni  DNI de la persona
+	 * @param sex  Género de la persona
+	 */
+	public PersonBean(String name, String dni, char sex) {
+		super();
+		this.name = name;
+		this.dni = dni;
+		this.sex = sex;
 	}
 
 	// GETTERS & SETTERS:
@@ -68,10 +83,4 @@ public class PersonBean {
 		this.sex = sex;
 	}
 
-	public PersonBean(String name, String dni, char sex) {
-		super();
-		this.name = name;
-		this.dni = dni;
-		this.sex = sex;
-	}
 }
