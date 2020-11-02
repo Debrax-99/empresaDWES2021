@@ -1,29 +1,41 @@
-/**
- * 
- */
 package model;
 
 /**
- * @author debrax
- *
+ * FP-2DAW Desarrollo Web en Entorno Servidor
+ * 
+ * @author Ana Blanco Escudero
+ * 
+ *         Clase Employee que implementa el objeto que representa a un empleado.
  */
 public class Employee extends Person {
 
 	// ATTRIBUTES:
+	/** Id del empleado */
 	private int idEmployee;
 	/** Categoría del empleado */
 	private int category;
 	/** Años trabajados por el empleado */
 	private int years;
 
+	// CONSTRUCTORS:
 	/**
 	 * Constructor genérico.
 	 */
-	// CONSTRUCTOR:
 	public Employee() {
 		super();
 	}
 
+	/**
+	 * Constructor sobrecargado que recibe por parámetros todos los atributos de un
+	 * empleado.
+	 * 
+	 * @param idEmployee El Id del empleado
+	 * @param name       El nombre del empleado
+	 * @param dni        El DNI del empleado
+	 * @param sex        El sexo del empleado
+	 * @param category   La categoría del empleado
+	 * @param years      Los años trabajados por el empleado
+	 */
 	public Employee(int idEmployee, String name, String dni, char sex, int category, int years) {
 		super(name, dni, sex);
 		this.idEmployee = idEmployee;
@@ -74,6 +86,7 @@ public class Employee extends Person {
 		this.years = years;
 	}
 
+	// TO STRING:
 	@Override
 	public String toString() {
 		return "Employee [idEmployee=" + idEmployee + ", category=" + category + ", years=" + years + super.toString()

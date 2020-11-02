@@ -10,10 +10,23 @@ import java.util.List;
 import connection.Connector;
 import model.Employee;
 
+/**
+ * FP-2DAW Desarrollo Web en Entorno Servidor
+ * 
+ * @author Ana Blanco Escudero
+ * 
+ *         Clase EmployeeDao que implementa los métodos asociados al objeto del
+ *         modelo Employee BBDD
+ */
 public class EmployeeDao {
 	private static final String SELECT_ALL = "SELECT id_employee, name, dni, sex, category, years from employee";
 	private static final String SELECT_EMPLOYEE = "SELECT id_employee, name, dni, sex, category, years from employee WHERE dni=?";
 
+	/**
+	 * Método que devuelve la lista de todos los empleados de la empresa
+	 * 
+	 * @return La lista de empleados.
+	 */
 	public List<Employee> ListEmployees() {
 		Employee employee;
 		List<Employee> employees = new ArrayList<>();
@@ -52,7 +65,7 @@ public class EmployeeDao {
 					e.printStackTrace();
 				}
 			}
-			if (ps != null) {	
+			if (ps != null) {
 				try {
 					ps.close();
 				} catch (SQLException e) {
@@ -72,7 +85,12 @@ public class EmployeeDao {
 
 		return employees;
 	}
-	
+
+	/**
+	 * Método que devuelve un empleado buscando en la BBDD por su DNI
+	 * 
+	 * @return El empleado
+	 */
 	public Employee selectEmployee(String dniSearch) {
 
 		Employee employee = null;
@@ -87,7 +105,7 @@ public class EmployeeDao {
 			ps = conn.prepareStatement(SELECT_EMPLOYEE);
 			ps.setString(1, dniSearch);
 			rs = ps.executeQuery();
-						
+
 			if (rs.absolute(1)) {
 				int idEmployee = rs.getInt("id_employee");
 				String name = rs.getString("name");
@@ -97,7 +115,7 @@ public class EmployeeDao {
 				int years = rs.getInt("years");
 
 				employee = new Employee(idEmployee, name, dni, sex, category, years);
-			}			
+			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
